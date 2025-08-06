@@ -238,6 +238,101 @@
       a: "Document everything, speak to HR, and if stress persists, approach an HR counselor or labor legal advisor.",
       tags: ["HR"]
     }
+
+        // 🔌 PART 5: FASTag Recharge from Personal Account – For RTO Executives
+    {
+      q: "As an RTO executive in a car dealership, can FASTag recharge be done from my personal account?",
+      a: `Technically, yes, but it's strongly discouraged. Recharging FASTag from a personal account (like UPI, Paytm, PhonePe, or net banking) can:
+      <ul class="list-disc ml-6 mt-2">
+        <li>Mix personal & professional funds</li>
+        <li>Raise audit red flags in dealership accounting</li>
+        <li>Cause ownership confusion (especially if the FASTag is not yet customer-transferred)</li>
+        <li>Make refund tracking difficult if recharge fails</li>
+      </ul>
+      <br><strong>Best Practice:</strong>
+      <ul class="list-disc ml-6 mt-2">
+        <li>Always use the dealership’s official payment account</li>
+        <li>Or assist the customer directly to recharge using their own UPI/Net Banking during delivery</li>
+      </ul>`,
+      tags: ["Audit", "KYC", "New-Uploads"]
+    },
+    {
+      q: "Is it okay to recharge a customer’s FASTag from the RTO staff’s personal UPI?",
+      a: "No. It may lead to confusion in case of refunds or disputes. It is also untraceable in official records.",
+      tags: ["Audit", "New-Uploads"]
+    },
+    {
+      q: "What if the dealership doesn’t have a digital payment account to recharge from?",
+      a: "Recommend creating an official UPI ID or wallet (like dealership@upi) for such transactions. Many dealerships also use bank-linked FASTag vendor wallets.",
+      tags: ["Audit", "New-Uploads"]
+    },
+    {
+      q: "Who is responsible if personal funds are used and recharge amount is not reimbursed?",
+      a: "If not pre-approved, the RTO executive may bear the loss. Always get prior approval or written note before using personal funds.",
+      tags: ["Audit", "HR", "New-Uploads"]
+    },
+    {
+      q: "How to handle a situation where the customer insists the showroom should recharge before delivery?",
+      a: "Recharge using the showroom wallet or ask the customer to transfer recharge amount digitally, then top-up via showroom account.",
+      tags: ["KYC", "New-Uploads"]
+    },
+    {
+      q: "What to do if the recharge fails and amount is debited from personal UPI?",
+      a: "Raise a dispute from your UPI app with UTR number. Meanwhile, inform the accounts team with a screenshot and incident report.",
+      tags: ["Audit", "New-Uploads"]
+    },
+    {
+      q: "Can recharging from personal accounts affect future audits?",
+      a: "Yes. Audit teams may question non-reconciled recharges. It may be assumed as unbilled expense or misuse of customer fund.",
+      tags: ["Audit", "New-Uploads"]
+    },
+    {
+      q: "Is there a threshold after which recharge is considered suspicious in audit?",
+      a: "Even small amounts like ₹200–₹500, if repeated across many vehicles, may trigger internal checks.",
+      tags: ["Audit", "New-Uploads"]
+    },
+    {
+      q: "How to avoid delay in recharge during urgent deliveries?",
+      a: "Keep pre-loaded balance in official wallet, or create a fast-track recharge SOP (SMS/QR to customer before delivery).",
+      tags: ["Audit", "KYC", "New-Uploads"]
+    },
+    {
+      q: "Should FASTag recharge details be noted in delivery checklist?",
+      a: "Yes. Include recharge time, amount, recharge method (UPI, NEFT, etc.) and transaction ID in PDI/delivery checklist.",
+      tags: ["Audit", "New-Uploads"]
+    },
+    {
+      q: "What is the best approach if customer is not reachable at time of recharge?",
+      a: "Do not use personal money. Mention 'Recharge pending – customer not reachable' in delivery checklist. Offer recharge demo at delivery if urgent.",
+      tags: ["Audit", "New-Uploads"]
+    },
+    {
+      q: "If personal payment is made mistakenly, can it be reversed to UPI?",
+      a: "Only if FASTag wallet allows refund (rare). Most wallets don’t support reverse UPI refunds once tag is credited.",
+      tags: ["Audit", "New-Uploads"]
+    },
+    {
+      q: "Is there a legal issue in using personal ID to recharge someone else’s FASTag?",
+      a: "Legally it’s not a crime, but it creates ownership trace issues in case of toll disputes or blacklisting.",
+      tags: ["Legal", "New-Uploads"
+    },
+    {
+      q: "Can the RTO executive preload FASTag balance for test drives or showroom movement?",
+      a: "Yes, but that should be done from showroom account with vehicle tagged as 'Stock Movement', not personal accounts.",
+      tags: ["KYC", "Audit", "New-Uploads"]
+    },
+    {
+      q: "What’s a sample SOP for FASTag recharge handling at dealership?",
+      a: `<ul class="list-disc ml-6 mt-2">
+        <li>Customer FASTag activated ✅</li>
+        <li>Recharge initiated from showroom wallet or customer account</li>
+        <li>Transaction ID noted on delivery file</li>
+        <li>No personal wallet or UPI involved</li>
+        <li>Copy of recharge receipt shared to customer via SMS/email</li>
+      </ul>`,
+      tags: ["Audit", "KYC", "New-Uploads"]
+    },
+
   ];
 
   let currentTag = "All";
@@ -281,12 +376,13 @@
   document.addEventListener('keydown', (e) => {
     const map = {
       '1': 'All',
-      '2': 'KYC',
-      '3': 'DealerBlocked',
-      '4': 'Audit',
-      '5': 'Penalty',
-      '6': 'Legal',
-      '7': 'HR'
+      '2': 'New-Uploads',
+      '3': 'KYC',
+      '4': 'DealerBlocked',
+      '5': 'Audit',
+      '6': 'Penalty',
+      '7': 'Legal',
+      '8': 'HR'
     };
     if (map[e.key]) filterByTag(map[e.key]);
   });
